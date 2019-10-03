@@ -1,0 +1,59 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Stocks</title>
+        {% else %}
+        <title>Welcome to StockApp</title>
+        {% endif %}
+        <style>
+            #chart-container{
+               height: 500px;
+            }
+            g[class$='creditgroup'] {
+               display:none !important;
+            }
+           table {
+            width: 100%; /* Ширина таблицы */
+            border-collapse: collapse; /* Убираем двойные линии между ячейками */
+           }
+           td, th {
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid #000; /* Параметры рамки */
+           }
+           th {
+            background: #afd792; /* Цвет фона */
+            color: #333;  /* Цвет текста */
+           }
+           tbody tr:hover {
+            background: #f3bd48; /* Цвет фона при наведении */
+            color: #fff; /* Цвет текста при наведении */
+           }
+           .form__item_inline{
+             display:inline-block;
+           }
+        </style>
+        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    </head>
+    <body>
+        <div>
+            StockApp - version 1.1
+            <a href="{{ url_for('hello_world') }}">About</a>
+            <a href="{{ url_for('stock_app_main') }}">   Home</a>
+            <!-- <a href="/index">Home</a> -->
+            <!-- <a href="/login">Login</a> -->
+            <a href="{{ url_for('settings') }}">   Settings</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
