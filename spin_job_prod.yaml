@@ -4,7 +4,7 @@ metadata:
   labels:
     app: script-job
   name: test-a-prod
-  namespace: dev
+  namespace: prod
 spec:
   backoffLimit: 2
   template:
