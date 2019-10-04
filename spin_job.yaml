@@ -3,7 +3,7 @@ kind: Job
 metadata:
   labels:
     app: script-job
-  name: test-a
+  name: test-a-dev
   namespace: dev
 spec:
   backoffLimit: 2
@@ -22,5 +22,5 @@ spec:
       restartPolicy: Never
       volumes:
         - configMap:
-            name: script-configmap
-          name: script-configmap
+            name: script-configmap-dev
+          name: script-configmap-dev
